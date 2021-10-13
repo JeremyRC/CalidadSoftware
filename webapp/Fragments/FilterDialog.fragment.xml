@@ -1,0 +1,26 @@
+<core:FragmentDefinition
+xmlns:core			="sap.ui.core"
+controllerName		="RegDesCombus.controller.MenuUser"
+xmlns				="sap.m"
+xmlns:l				="sap.ui.layout"
+xmlns:form			="sap.ui.layout.form"
+xmlns:ui			="sap.ui.table">
+	
+	<ViewSettingsDialog
+		confirm="handleSortDialogConfirm">
+		<sortItems>
+			<ViewSettingsItem text="Numero IMR" 			key="Idmoj" selected="true"/>
+			<ViewSettingsItem text="Tipo IMR"				key="MojtypeDesc"/>
+			<ViewSettingsItem text="Prioridad"				key="Priority"/>
+			<ViewSettingsItem text="Creador"				key="Createdby"/>
+			<ViewSettingsItem text="Fecha Creación" 		key="Createdon"/>
+			<ViewSettingsItem text="Solicitante"			key="Requestby"/>
+			<ViewSettingsItem text="Estatus"				key="StatusDesc"/>
+			<ViewSettingsItem text="Descripción de Etapa"	key="IdstepDesc"/>
+			<ViewSettingsItem text="Costo Total"			key="Totalcost"/>
+			<ViewSettingsItem text="Área"					key="Area"/>
+			<ViewSettingsItem text="Fecha Cambio"			key="Changeon"/>
+		</sortItems>
+	</ViewSettingsDialog>
+   
+</core:FragmentDefinition>

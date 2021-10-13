@@ -1,0 +1,43 @@
+<mvc:View 
+xmlns:mvc="sap.ui.core.mvc" 
+controllerName="appDirisTesis.controller.Login" 
+xmlns="sap.m" 
+xmlns:core="sap.ui.core">
+    <Page showHeader="true" title="LOGIN" showFooter="true" showNavButton="false">
+        <content>
+            <VBox alignItems="Center" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Center" renderType="Div" visible="true" displayInline="false" class="sapUiLargeMarginTop sapUiLargeMarginBottom sapUiLargeMarginBegin sapUiLargeMarginEnd">
+                <items>
+                    <Title text="DIRIS LIMA NORTE" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false" class="sapUiResponsiveMargin"/>
+                    <Image src="../resources/icono-diris-v4.jpg" height="150px" width="150px" visible="true" densityAware="false" class="sapUiResponsiveMargin"/>
+                    <Title text="BIENVENIDO" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false" class="sapUiResponsiveMargin"/>
+                    <Input placeholder="Usuario" value="{sistema>/usuarioLog}" valueStateText="{sistema>/userStateText}" valueState="{sistema>/userTextState}" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false"  maxLength="0" class="sapUiResponsiveMargin"/>
+                    <Input placeholder="Contraseña" value="{sistema>/contraseniaLog}" valueStateText="{sistema>/contraStateText}" valueState="{sistema>/contraTextState}" type="Password" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" maxLength="0" class="sapUiResponsiveMargin"/>
+                    <ComboBox selectedKey="" placeholder="Seleccionar Usuario" editable="true" enabled="true" visible="false" width="auto" valueState="None" maxWidth="100%" class="sapUiResponsiveMargin">
+                        <items>
+                            <core:Item text="Administrador" enabled="true" key="Adminstrador"/>
+                            <core:Item text="Trabajador" enabled="true" key="Trabajador"/>
+                        </items>
+                    </ComboBox>
+                    <CheckBox text="Recuérdame" selected="false" editable="true" enabled="true" visible="false" width="auto" textDirection="Inherit" wrapping="false" useEntireWidth="true" class="sapUiResponsiveMargin"/>
+                    <HBox alignItems="Center" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="End" renderType="Div" visible="true" displayInline="false">
+                        <items/>
+                        <layoutData/>
+                    </HBox>
+                </items>
+                <layoutData/>
+            </VBox>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Ingresar" press="validarUser" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Visitante" type="Accept" icon="sap-icon://arrow-right" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </footer>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

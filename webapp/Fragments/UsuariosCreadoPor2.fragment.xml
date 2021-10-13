@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog 
+	id				= "Usuarios456"
+	title			= "Nombres" 
+	class			= "sapUiPopupWithPadding" 
+	items			= "{sistema>/dataNombreIns}"
+	search			= "onSearch"
+	liveChange		= "onSearch"
+	confirm			= "onValueHelpDialogClose2" 
+	showClearButton	= "false">
+		
+		<StandardListItem 
+		iconDensityAware	="false" 
+		iconInset			="false" 
+		class				="listSmall2" 
+		title				="{sistema>NombreIns}"/>
+		
+	</SelectDialog>
+</core:FragmentDefinition>

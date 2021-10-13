@@ -1,0 +1,70 @@
+<core:FragmentDefinition
+	xmlns			=	"sap.m"
+	xmlns:core		=	"sap.ui.core"
+	xmlns:rte		=	"sap.ui.richtexteditor"
+	xmlns:form		=	"sap.ui.layout.form"
+	xmlns:commons	=	"sap.suite.ui.commons"
+	xmlns:l			=	"sap.ui.layout">
+	
+	<VBox alignItems="Start" wrap="Wrap" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Center" renderType="Div" visible="true" displayInline="false">
+        
+        <items>
+        	
+        	<HBox alignItems="Inherit" wrap="Wrap" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Center" renderType="Div" visible="true" displayInline="false">
+					<items>
+						<ToolbarSpacer width="27rem" />
+						<Title text="Consultar Solicitud" titleStyle="H2" width="auto" textAlign="Center" visible="true" wrapping="false" class="sapUiResponsiveMargin"/>
+					</items>
+				<layoutData/>
+			</HBox>
+        	
+        	<HBox alignItems="Inherit" class="sapUiMediumMarginTop sapUiLargeMarginBottom" wrap="Wrap" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Center" renderType="Div" visible="true" displayInline="false">
+					<items>
+						<ToolbarSpacer width="14rem" />
+						<Text text="N° Registro de Documento Informática : " width="auto" class="sapUiTinyMarginTop" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						<ToolbarSpacer width="1rem" />
+						<Input value="{sistema>/dialogidProdctActInp}" liveChange="numIdenLC" editable= "true" width="auto" type="Text" placeholder="Ingresar un ID" maxLength="5"/>
+						<ToolbarSpacer width="3rem" />
+						<Button text="Buscar" press="botonActiva" type="Emphasized" icon="sap-icon://search" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" />
+					</items>
+				<layoutData/>
+			</HBox>
+			
+			<commons:ProcessFlow
+				id="processflow1"
+				scrollable="false"
+				visible="{sistema>/btnFlowT}"
+				foldedCorners="true"
+				nodePress="onNodePress"
+				nodes="{sistema>/nodesAndLane/nodes}"
+				lanes="{sistema>/nodesAndLane/lanes}">
+				<commons:nodes>
+					<commons:ProcessFlowNode
+						laneId="{sistema>lane}"
+						nodeId="{sistema>id}"
+						title="{sistema>title}"
+						titleAbbreviation="{sistema>titleAbbreviation}"
+						children="{sistema>children}"
+						state="{sistema>state}"
+						stateText="{sistema>stateText}"
+						texts="{sistema>texts}"
+						highlighted="{sistema>highlighted}"
+						focused="{sistema>focused}" />
+				</commons:nodes>
+				<commons:lanes>
+					<commons:ProcessFlowLaneHeader
+						laneId="{sistema>id}"
+						iconSrc="{sistema>icon}"
+						text="{sistema>label}"
+						position="{sistema>position}"
+						state="{sistema>state}"/>
+				</commons:lanes>
+			</commons:ProcessFlow>
+            
+        </items>
+        
+        <layoutData/>
+    </VBox>
+      
+	
+</core:FragmentDefinition>

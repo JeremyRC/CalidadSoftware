@@ -1,0 +1,126 @@
+<core:FragmentDefinition
+	xmlns			=	"sap.m"
+	xmlns:core		=	"sap.ui.core"
+	xmlns:rte		=	"sap.ui.richtexteditor"
+    xmlns:form		="sap.ui.layout.form"
+	xmlns:l			=	"sap.ui.layout">
+	
+	<VBox alignItems="Center" wrap="Wrap" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Center" renderType="Div" visible="true" displayInline="false">
+                <items>
+                    <Title text="Eliminar Insumos" titleStyle="H2" width="auto" textAlign="Begin" visible="true" wrapping="false" class="sapUiResponsiveMargin"/>
+                	<HBox alignItems="Inherit" class="sapUiMediumMarginTop" wrap="Wrap" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Inherit" renderType="Div" visible="true" displayInline="false">
+							<items>
+								<Text text="ID Producto: " width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								<ToolbarSpacer width="1rem" />
+								<Input value="{sistema>/idProductoDelete}" liveChange="numIdenLC" editable= "true" width="auto" type="Text" placeholder="Ingresar un ID" maxLength="5"/>
+								<ToolbarSpacer width="3rem" />
+								<Button text="Buscar" press="botonBuscarDelete" type="Emphasized" icon="sap-icon://search" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" />
+							</items>
+						<layoutData/>
+					</HBox>
+					
+					<form:Form width="65rem" editable="true" visible="true" class="sapUiMediumMarginTop" >
+						<form:title>
+						</form:title>
+						<form:formContainers>
+								
+							<form:FormContainer visible="true">
+								<form:formElements>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="ID Producto" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+												visible="true"/>
+										</form:label>
+										<form:fields>
+											<Input value="{sistema>/dialogidProdctDel}" liveChange="numIdenLC" editable= "false" width="18rem" type="Text" placeholder="" maxLength="5"/>
+										</form:fields>
+									</form:FormElement>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="Nombre" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+												visible="true"/>
+										</form:label>
+										<form:fields>
+											<Input value="{sistema>/dialogNombDel}" liveChange="numIdenLC" editable="false" width="18rem" type="Text" placeholder="Ingresar Marca" maxLength="39"/>
+										</form:fields>
+									</form:FormElement>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="Marca" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+												visible="true"/>
+										</form:label>
+										<form:fields>
+											<Input value="{sistema>/dialogMarcaDel}" liveChange="numIdenLC" editable="false" width="18rem" type="Text" placeholder="Ingresar Marca" maxLength="39"/>
+										</form:fields>
+									</form:FormElement>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="Cantidad" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</form:label>
+										<form:fields>
+											<Input value="{sistema>/dialogCantidadDel}"  editable= "false" width="18rem" type="Text" placeholder="" maxLength="0"/>
+										</form:fields>
+									</form:FormElement>
+								</form:formElements>
+							</form:FormContainer>
+							
+							<form:FormContainer visible="true">
+								<form:formElements>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="Cod Patrimonial" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+												visible="true"/>
+										</form:label>
+										<form:fields>
+											<Input value="{sistema>/dialogCodPatDel}" liveChange="numIdenLC" editable="false" width="18rem" type="Text" placeholder="Ingresar un Cod Patrimonial" maxLength="8"/>
+										</form:fields>
+									</form:FormElement>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="Descripción" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+												visible="true"/>
+										</form:label>
+										<form:fields>
+											<Input value="{sistema>/dialogDescripDel}" liveChange="numIdenLC" editable= "false" width="18rem" type="Text" placeholder="" maxLength="39"/>
+										</form:fields>
+									</form:FormElement>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="Modelo" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+												visible="true"/>
+										</form:label>
+										<form:fields>
+											<Input value="{sistema>/dialogModeloDel}" liveChange="numIdenLC" editable="false" width="18rem" type="Text" placeholder="Ingresar Modelo" maxLength="39"/>
+										</form:fields>
+									</form:FormElement>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="Estado" design="Standard" width="100%" required="false" textAlign="Initial" textDirection="LTR"
+												visible="true"/>
+										</form:label>
+										<form:fields>
+											<Input value="{sistema>/dialogEstDel}" editable= "false" width="18rem" type="Text" placeholder="" maxLength="0"/>
+										</form:fields>
+									</form:FormElement>
+								</form:formElements>
+							</form:FormContainer>
+								
+						</form:formContainers>	
+						<form:layout>
+							<form:ResponsiveGridLayout/>
+						</form:layout>
+					</form:Form>
+					
+					<HBox alignItems="Inherit" class="sapUiMediumMarginTop" wrap="Wrap" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Inherit" renderType="Div" visible="true" displayInline="false">
+							<items>
+								<Button text="Eliminar" press="eliminar" type="Accept" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="{sistema>/btnDeleteE}" visible="true" iconDensityAware="false" />
+								<ToolbarSpacer width="2rem" />
+								<Button text="Cancelar" press="cancelDelete" type="Reject" icon="sap-icon://cancel" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" />
+							</items>
+						<layoutData/>
+					</HBox>
+                </items>
+                <layoutData/>
+    </VBox>
+      
+</core:FragmentDefinition>

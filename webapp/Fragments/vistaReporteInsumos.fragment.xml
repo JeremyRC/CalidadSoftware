@@ -1,0 +1,126 @@
+<core:FragmentDefinition
+	xmlns			=	"sap.m"
+	xmlns:core		=	"sap.ui.core"
+	xmlns:rte		=	"sap.ui.richtexteditor"
+	xmlns:l			=	"sap.ui.layout">
+	
+	<VBox alignItems="Center" wrap="Wrap" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Center" renderType="Div" visible="true" displayInline="false">
+                <items>
+                    <Title text="Reporte de Insumos" titleStyle="H2" width="auto" textAlign="Begin" visible="true" wrapping="false" class="sapUiResponsiveMargin"/>
+                    <Table 
+                    width="100%" 
+                    noDataText="No data" 
+                    mode="MultiSelect" 
+                    showSeparators="All"
+                    growing="true" 
+                    growingThreshold="20"
+                    growingScrollToLoad="true" 
+                    items="{sistema>/dataReporte}">
+		                <infoToolbar>
+		                    <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+		                        <content>
+		                            <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                        </content>
+		                    </Toolbar>
+		                </infoToolbar>
+		                <headerToolbar>
+		                    <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+		                        <content>
+		                            <Title text="{sistema>/titulo}" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+		                            <ToolbarSpacer width=""/>
+		                            <OverflowToolbarButton 
+		                            text				= "Ordenar" 
+		                            press				= "handleSortButtonPressed" 
+		                            type				= "Transparent" 
+		                            icon				= "sap-icon://sort" 
+		                            iconFirst			= "true" 
+		                            width				= "auto" 
+		                            enabled				= "true" 
+		                            visible				= "true" 
+		                            iconDensityAware	= "false"/>
+		                            
+		                            <OverflowToolbarButton 
+		                            text				= "Filtrar" 
+		                            press				= "handleFilterButtonPressed" 
+		                            type				= "Transparent" 
+		                            icon				= "sap-icon://filter" 
+		                            iconFirst			= "true" 
+		                            width				= "auto" 
+		                            enabled				= "true" 
+		                            visible				= "true" 
+		                            iconDensityAware	= "false"/>
+		                        </content>
+		                    </OverflowToolbar>
+		                </headerToolbar>
+		                <columns>
+		                    <Column width="5.7rem" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+		                        <header>
+		                            <Text text="ID Producto" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                        </header>
+		                        <footer/>
+		                    </Column>
+		                    <Column width="6rem" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+		                        <header>
+		                            <Text text="Cod. Patrimonial" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                        </header>
+		                        <footer/>
+		                    </Column>
+		                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+		                        <header>
+		                            <Text text="Nombre" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                        </header>
+		                        <footer/>
+		                    </Column>
+		                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+		                        <header>
+		                            <Text text="Descripción" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                        </header>
+		                        <footer/>
+		                    </Column>
+		                    <Column width="5rem" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+		                        <header>
+		                            <Text text="Cantidad" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                        </header>
+		                        <footer/>
+		                    </Column>
+		                    <Column width="9rem" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+		                        <header>
+		                            <Text text="Modelo" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                        </header>
+		                        <footer/>
+		                    </Column>
+		                    <Column width="7rem" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+		                        <header>
+		                            <Text text="Marca" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                        </header>
+		                        <footer/>
+		                    </Column>
+		                    <Column width="6rem" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+		                        <header>
+		                            <Text text="Estado" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                        </header>
+		                        <footer/>
+		                    </Column>
+		                </columns>
+		                <items>
+		                    <ColumnListItem type="Inactive">
+		                        <cells>
+		                            <Text text="{sistema>IdProducto}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                            <Text text="{sistema>codPatrim}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                            <Text text="{sistema>Nombre}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                            <Text text="{sistema>Descripcion}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                            <Text text="{sistema>Cantidad}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                            <Text text="{sistema>Modelo}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                            <Text text="{sistema>Marca}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                            <Text text="{sistema>Estado}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+		                        </cells>
+		                    </ColumnListItem>
+
+		                </items>
+		            </Table>
+                </items>
+                <layoutData/>
+    </VBox>
+      
+	
+</core:FragmentDefinition>

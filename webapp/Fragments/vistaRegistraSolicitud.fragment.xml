@@ -1,0 +1,277 @@
+<core:FragmentDefinition
+	xmlns			=	"sap.m"
+	xmlns:core		=	"sap.ui.core"
+	xmlns:rte		=	"sap.ui.richtexteditor"
+	xmlns:form		=	"sap.ui.layout.form"
+	xmlns:l			=	"sap.ui.layout">
+	
+	<VBox alignItems="Start" wrap="Wrap" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Center" renderType="Div" visible="true" displayInline="false">
+        
+        <items>
+        	
+        	<HBox alignItems="Center" class="sapUiResponsiveMargin" direction="Row" fitContainer="false" width="auto" height="auto" renderType="Div" visible="true" displayInline="false">
+                <items>
+                    <Title text="Registrar Solicitud" titleStyle="H2" width="auto" textAlign="Center" visible="true" wrapping="false"/>
+                </items>
+                <layoutData/>
+            </HBox>
+            
+            <Panel height="auto" width="100%" headerText="" expandable="false" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                <content>
+                    <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false" class="sapUiResponsiveMargin">
+                        <items>
+                            <Label text="Fecha :" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" class="sapUiTinyMarginTop"/>
+                            <ToolbarSpacer width="10.5rem"/>
+                            <DatePicker placeholder="dd/mm/aaaa" width="15rem" displayFormat="medium" required="false" valueStateText="Invalid entry" enabled="true" visible="true" valueFormat="yyyyMMdd"/>
+                            <ToolbarSpacer width="5rem"/>
+                            <Label text="N° Registro de Documento Informática :" design="Standard" width="auto" required="false" textAlign="Begin" textDirection="Inherit" visible="true" class="sapUiTinyMarginTop sapUiMediumMarginEnd"/>
+                            <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="8rem" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0"/>
+                        </items>
+                        <layoutData/>
+                    </HBox>
+                    <VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                        <items>
+                            <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false" class="sapUiMediumMarginBegin">
+                                <items>
+                                    <Label text="Unid. Org. / Establec:" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" class="sapUiSmallMarginTop"/>
+                                    <ToolbarSpacer width="5rem"/>
+                                    <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="40rem" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0"/>
+                                </items>
+                                <layoutData/>
+                            </HBox>
+                            <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false" class="sapUiMediumMarginBegin">
+                                <items>
+                                    <Label text="Cargo / Servicio :" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" class="sapUiSmallMarginTop"/>
+                                    <ToolbarSpacer width="6.2rem"/>
+                                    <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="40rem" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0" class="sapUiTinyMarginBegin"/>
+                                </items>
+                                <layoutData/>
+                            </HBox>
+                            <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false" class="sapUiMediumMarginBegin">
+                                <items>
+                                    <Label text="Usuario del Equipo :" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" class="sapUiSmallMarginTop"/>
+                                    <ToolbarSpacer width="4.5rem"/>
+                                    <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="40rem" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0" class="sapUiSmallMarginBegin"/>
+                                </items>
+                                <layoutData/>
+                            </HBox>
+                            <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false" class="sapUiMediumMarginBegin">
+                                <items>
+                                    <Label text="Nro. Cel. de Contacto :" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" class="sapUiSmallMarginTop"/>
+                                    <ToolbarSpacer width="3.7rem"/>
+                                    <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="40rem" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0" class="sapUiTinyMarginBegin"/>
+                                </items>
+                                <layoutData/>
+                            </HBox>
+                        </items>
+                        <layoutData/>
+                    </VBox>
+                </content>
+            </Panel>
+            
+            <Panel height="100%" width="67rem" headerText="" expandable="false" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                <content>
+                	
+                	<form:Form width="100%" editable="true" visible="true">
+                        <form:title>
+                            <core:Title text="Tipo de Equipo / Servicio" level="Auto"/>
+                        </form:title>
+                        <form:formContainers>
+						</form:formContainers>
+                        <form:layout>
+                            <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                        </form:layout>
+                    </form:Form>
+                	
+                	<Table
+					id		="tablaDesglose"
+					items	="{path:'sistema>/jsonData'}">
+						<headerToolbar>
+						<OverflowToolbar>
+								<content>
+								<ToolbarSpacer width=""/>
+									<Button press="masFilas" class="sapUiSmallMarginEnd" type="Transparent" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+								</content>
+						</OverflowToolbar>
+						</headerToolbar>
+						<columns>
+							
+							<Column width="5rem">
+								<Text text="Cod. Relativo"/>
+							</Column>
+							<Column demandPopin="true" hAlign="Begin" minScreenWidth="Large" width="">
+								<Text text="Equipo / Servicio"/>
+							</Column>
+							<Column demandPopin="true" hAlign="Begin" minScreenWidth="Large" width="">
+								<Text text="Cod. Patrim."/>
+							</Column>
+							<Column demandPopin="true" hAlign="Begin" minScreenWidth="Large" width="">
+								<Text text="Marca"/>
+							</Column>
+							<Column demandPopin="true" hAlign="Begin" minScreenWidth="Large" width="">
+								<Text text="Modelo / Tipo"/>
+							</Column>
+							<Column demandPopin="true" hAlign="Begin" minScreenWidth="Large" width="6.5rem">
+								<Text text="Serie"/>
+							</Column>
+							<Column demandPopin="true" hAlign="Begin" minScreenWidth="Large" width="4rem">
+								<Text text="Borrar"/>
+							</Column>
+							
+						</columns>
+						
+						<items>
+							<ColumnListItem>
+								
+								<Text text="{sistema>numDesglose}" textAlign="Begin"/>
+								
+								<Select selectedKey	= "0">
+									<items>
+										<core:Item key="0" text="---Seleccionar---"/>
+										<core:Item key="1" text="CPU"/>
+										<core:Item key="2" text="Monitor"/>
+										<core:Item key="3" text="Mouse"/>
+										<core:Item key="4" text="Teclado"/>
+										<core:Item key="5" text="Otro"/>
+									</items>
+								</Select>
+								
+								<Input textAlign="Begin" value="{sistema>motivo}" />
+								
+								<Input textAlign="Begin" value="{sistema>motivoded}" />
+								
+								<Input textAlign="Begin" value="{sistema>motivoed}" />
+								
+								<Input textAlign="Begin" value="{sistema>motivodedede}" />
+								
+								<Button press="deleteRow" type="Reject" icon="sap-icon://delete"/>
+								
+							</ColumnListItem>
+						</items>
+						
+					</Table>
+                	
+                	
+                    <!--<form:Form width="100%" editable="true" visible="true">-->
+                    <!--    <form:title>-->
+                    <!--        <core:Title text="Tipo de Equipo / Servicio" level="Auto"/>-->
+                    <!--    </form:title>-->
+                    <!--    <form:formContainers>-->
+                    <!--        <form:FormContainer visible="true">-->
+                    <!--            <form:formElements>-->
+                    <!--                <form:FormElement visible="true">-->
+                    <!--                    <form:label>-->
+                    <!--                        <Label text="Equipo / Servicio" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+                    <!--                    </form:label>-->
+                    <!--                    <form:fields>-->
+                    <!--                        <ComboBox editable="true" value="Seleccionar" enabled="true" visible="true" width="12rem" valueState="None" maxWidth="100%">-->
+                    <!--                            <items>-->
+                    <!--                                <core:Item text="CPU" enabled="true" key="CPU"/>-->
+                    <!--                                <core:Item text="Monitor" enabled="true" key="Monitor"/>-->
+                    <!--                                <core:Item text="Impresora" enabled="true" key="Impresora"/>-->
+                    <!--                                <core:Item text="Mouse" enabled="true" key="Mouse"/>-->
+                    <!--                                <core:Item text="Teclado" enabled="true" key="Teclado"/>-->
+                    <!--                                <core:Item text="Otro" enabled="true" key="Otro"/>-->
+                    <!--                            </items>-->
+                    <!--                        </ComboBox>-->
+                    <!--                    </form:fields>-->
+                    <!--                </form:FormElement>-->
+                    <!--                <form:FormElement visible="true">-->
+                    <!--                    <form:label>-->
+                    <!--                        <Label text="Cod. Patrim." design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+                    <!--                    </form:label>-->
+                    <!--                    <form:fields>-->
+                    <!--                        <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="12rem" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0"/>-->
+                    <!--                    </form:fields>-->
+                    <!--                </form:FormElement>-->
+                    <!--                <form:FormElement visible="true">-->
+                    <!--                    <form:label>-->
+                    <!--                        <Label text="Marca" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+                    <!--                    </form:label>-->
+                    <!--                    <form:fields>-->
+                    <!--                        <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="12rem" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0"/>-->
+                    <!--                    </form:fields>-->
+                    <!--                </form:FormElement>-->
+                    <!--            </form:formElements>-->
+                    <!--            <form:title/>-->
+                    <!--        </form:FormContainer>-->
+                    <!--        <form:FormContainer visible="true">-->
+                    <!--            <form:formElements>-->
+                    <!--                <form:FormElement visible="true">-->
+                    <!--                    <form:label>-->
+                    <!--                        <Label text="Modelo / Tipo" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+                    <!--                    </form:label>-->
+                    <!--                    <form:fields>-->
+                    <!--                        <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="12rem" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0"/>-->
+                    <!--                    </form:fields>-->
+                    <!--                </form:FormElement>-->
+                    <!--                <form:FormElement visible="true">-->
+                    <!--                    <form:label>-->
+                    <!--                        <Label text="Serie" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+                    <!--                    </form:label>-->
+                    <!--                    <form:fields>-->
+                    <!--                        <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="12rem" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0"/>-->
+                    <!--                    </form:fields>-->
+                    <!--                </form:FormElement>-->
+                    <!--            </form:formElements>-->
+                    <!--            <form:title/>-->
+                    <!--        </form:FormContainer>-->
+                    <!--    </form:formContainers>-->
+                    <!--    <form:layout>-->
+                    <!--        <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>-->
+                    <!--    </form:layout>-->
+                    <!--</form:Form>-->
+                    <!--<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="End" renderType="Div" visible="true" displayInline="false">-->
+                    <!--    <items>-->
+                    <!--        <Button text="Agregar" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" class="sapUiMediumMarginEnd"/>-->
+                    <!--    </items>-->
+                    <!--    <layoutData/>-->
+                    <!--</HBox>-->
+                </content>
+            </Panel>
+            
+            <Panel height="auto" width="65rem" headerText="" expandable="false" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                <content>
+                    <form:Form width="100%" editable="true" visible="true">
+                        <form:title>
+                            <core:Title text="Descripción del Servicio Solicitado" level="Auto"/>
+                        </form:title>
+                        <form:formContainers>
+                            <form:FormContainer visible="true">
+                                <form:formElements>
+                                    <form:FormElement visible="true">
+                                        <form:label>
+                                            <Label text="Indicar el problema presentado en el equipo o red y clave del equipo si lo tuviera" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="RTL" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <TextArea rows="5" cols="20" maxLength="0" wrapping="None" enabled="true" required="false" valueStateText="Invalid entry" visible="true"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                </form:formElements>
+                                <form:title/>
+                            </form:FormContainer>
+                        </form:formContainers>
+                        <form:layout>
+                            <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                        </form:layout>
+                    </form:Form>
+                </content>
+            </Panel>
+            
+            <HBox alignItems="Inherit" class="sapUiMediumMarginTop" wrap="Wrap" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Inherit" renderType="Div" visible="true" displayInline="false">
+				<items>
+					<Button text="Guardar" type="Accept" class="sapUiSmallMarginBegin" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" />
+					<ToolbarSpacer width="2rem" />
+					<Button text="Cancelar" press="cancelRegistraSolic" type="Reject" icon="sap-icon://cancel" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" />
+				</items>
+			<layoutData/>
+			</HBox>
+            
+            
+        </items>
+        
+        <layoutData/>
+    </VBox>
+      
+	
+</core:FragmentDefinition>

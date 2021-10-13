@@ -1,0 +1,152 @@
+<core:FragmentDefinition
+	xmlns			=	"sap.m"
+	xmlns:core		=	"sap.ui.core"
+	xmlns:rte		=	"sap.ui.richtexteditor"
+	xmlns:form		=	"sap.ui.layout.form"
+	xmlns:l			=	"sap.ui.layout">
+	
+	<VBox alignItems="Center" wrap="Wrap" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Center" renderType="Div" visible="true" displayInline="false">
+                <items>
+                    <Title text="Actualizar Insumos" titleStyle="H2" width="auto" textAlign="Begin" visible="true" wrapping="false" class="sapUiResponsiveMargin"/>
+                	<HBox alignItems="Inherit" class="sapUiMediumMarginTop" wrap="Wrap" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Inherit" renderType="Div" visible="true" displayInline="false">
+							<items>
+								<Text text="ID Producto: " width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								<ToolbarSpacer width="1rem" />
+								<Input value="{sistema>/dialogidProdctActInp}" liveChange="numIdenLC" editable= "true" width="auto" type="Text" placeholder="Ingresar un ID" maxLength="5"/>
+								<ToolbarSpacer width="3rem" />
+								<Button text="Buscar" press="botonBuscar" type="Emphasized" icon="sap-icon://search" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" />
+							</items>
+						<layoutData/>
+					</HBox>
+					
+					<form:Form width="65rem" editable="true" visible="true" class="sapUiMediumMarginTop" >
+						<form:title>
+						</form:title>
+						<form:formContainers>
+							<form:FormContainer visible="true">
+								<form:formElements>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="ID Producto" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+												visible="true"/>
+										</form:label>
+										<form:fields>
+											<Input value="{sistema>/dialogidProdctAct}" liveChange="numIdenLC" editable= "{sistema>/keyIdProdActEn}" width="18rem" type="Text" placeholder="Ingresar un ID" maxLength="5"/>
+										</form:fields>
+									</form:FormElement>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="Nombre" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+												visible="true"/>
+										</form:label>
+										<form:fields>
+											<Input
+											id				="CreadoPor2"
+											type			="Text"
+											value			="{sistema>/dialogNombreAct}" 
+											showValueHelp	="true"
+											editable		="{sistema>/keyNombreActEn}"
+											enabled			="true" 
+											visible			="true"
+											width			="18rem"
+											placeholder		="Seleccionar Nombre"
+											valueHelpRequest="ValueHelpCreadoPor2"
+											valueHelpOnly	="true" 
+											required		="false" 
+											valueStateText	="Invalid entry"
+											maxLength		="0"/>
+										</form:fields>
+									</form:FormElement>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="Marca" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+												visible="true"/>
+										</form:label>
+										<form:fields>
+											<Input value="{sistema>/dialogMarcaAct}" liveChange="numIdenLC" editable="{sistema>/keyMarcaActEn}" width="18rem" type="Text" placeholder="Ingresar Marca" maxLength="39"/>
+										</form:fields>
+									</form:FormElement>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="Cantidad" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</form:label>
+										<form:fields>
+											<Input value="{sistema>/dialogCantidadAct}"  editable="{sistema>/keyCantActEn}" width="18rem" type="Text" placeholder="Ingresar Cantidad" maxLength="0"/>
+										</form:fields>
+									</form:FormElement>
+								</form:formElements>
+							</form:FormContainer>
+							
+							<form:FormContainer visible="true">
+								<form:formElements>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="Cod Patrimonial" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+												visible="true"/>
+										</form:label>
+										<form:fields>
+											<Input value="{sistema>/dialogCodPatAct}" liveChange="numIdenLC" editable="{sistema>/keyCodPatActEn}" width="18rem" type="Text" placeholder="Ingresar un Cod Patrimonial" maxLength="8"/>
+										</form:fields>
+									</form:FormElement>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="Descripción" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+												visible="true"/>
+										</form:label>
+										<form:fields>
+											<TextArea value="{sistema>/dialogDescripAct}" editable="{sistema>/keyDescActEn}" rows="2" cols="4" width="18rem" placeholder="Ingresar Descripción" maxLength="100" wrapping="Soft" required="false" valueStateText="Invalid entry" visible="true"/>
+										</form:fields>
+									</form:FormElement>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="Modelo" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+												visible="true"/>
+										</form:label>
+										<form:fields>
+											<Input value="{sistema>/dialogModeloAct}" liveChange="numIdenLC" editable="{sistema>/keyModActEn}" width="18rem" type="Text" placeholder="Ingresar Modelo" maxLength="39"/>
+										</form:fields>
+									</form:FormElement>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="Estado" design="Standard" width="100%" required="false" textAlign="Initial" textDirection="LTR"
+												visible="true"/>
+										</form:label>
+										<form:fields>
+											<Select 
+												selectedKey		= "{sistema>/keyDialogTipDocAct}"
+												change			= "selectTipDocDialog"
+												enabled			= "{sistema>/keyEstActEn}"
+												width			= "18rem">
+												<items>
+													<core:Item key="0" text="---Seleccionar---"/>
+													<core:Item key="NUEVO" text="NUEVO"/>
+													<core:Item key="USADO" text="USADO"/>
+												</items>
+											</Select>
+										</form:fields>
+									</form:FormElement>
+								</form:formElements>
+							</form:FormContainer>
+							
+						</form:formContainers>	
+						<form:layout>
+							<form:ResponsiveGridLayout/>
+						</form:layout>
+					</form:Form>
+					
+					<HBox alignItems="Inherit" class="sapUiMediumMarginTop" wrap="Wrap" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Inherit" renderType="Div" visible="true" displayInline="false">
+							<items>
+								<Button text="Actualizar" press="botonActualizar" type="Accept" icon="sap-icon://save" iconFirst="true" width="auto" enabled="{sistema>/btnActualizarE}" visible="true" iconDensityAware="false" />
+								<ToolbarSpacer width="2rem" />
+								<Button text="Cancelar" press="cancelActualizar" type="Reject" icon="sap-icon://cancel" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" />
+							</items>
+						<layoutData/>
+					</HBox>
+
+					
+                </items>
+                <layoutData/>
+    </VBox>
+      
+	
+</core:FragmentDefinition>
