@@ -1085,7 +1085,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		// },
 		   
 		enviarSistema: function(){
-			var prueba = "pru"; 
+			var prueba = "prueba"; 
 			MessageBox.warning("¿Estás seguro que deseas cerrar la sesión?", {
 			actions: ["Aceptar", "Cancelar"],
 			emphasizedAction: MessageBox.Action.OK,
